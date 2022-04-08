@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       title: 'Flutter Demo',
       theme: ThemeData.light(),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }

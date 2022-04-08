@@ -12,6 +12,7 @@ class NameModel {
     this.adress,
     this.itnIec,
     this.date,
+    this.status
   });
 
   @HiveField(0)
@@ -28,4 +29,6 @@ class NameModel {
   String? itnIec;
   @HiveField(6)
   String? date;
+   @HiveField(7)
+  int? status;
 }

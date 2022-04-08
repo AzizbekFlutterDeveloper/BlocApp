@@ -24,13 +24,14 @@ class NameModelAdapter extends TypeAdapter<NameModel> {
       adress: fields[4] as String?,
       itnIec: fields[5] as String?,
       date: fields[6] as String?,
+      status: fields[7] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, NameModel obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class NameModelAdapter extends TypeAdapter<NameModel> {
       ..writeByte(5)
       ..write(obj.itnIec)
       ..writeByte(6)
-      ..write(obj.date);
+      ..write(obj.date)
+      ..writeByte(7)
+      ..write(obj.status);
   }
 
   @override

@@ -2,6 +2,8 @@ import 'package:amaliyot/core/constans/app_colors.dart';
 import 'package:amaliyot/core/size_config/size_config.dart';
 import 'package:amaliyot/screens/bloc/cont_bloc.dart';
 import 'package:amaliyot/screens/contract_page.dart';
+import 'package:amaliyot/screens/profile_page.dart';
+import 'package:amaliyot/screens/saved_page.dart';
 import 'package:amaliyot/screens/widget/bottom_nav_bar_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +11,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  HomePage({Key? key}) : super(key: key);
+  final List<Widget> _pages = [
+    ContractsPage(),
+    ContractsPage(),
+    ContractsPage(),
+    SavedPage(),
+    ProfilePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -31,7 +39,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: ConstColor.black,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: index == 2 ? const Color(0xff141416): ConstColor.black,
+        backgroundColor: index != 0 ? const Color(0xff141416): ConstColor.black,
         title: Text("${appBar[index]}".tr()),
         leading: Image.asset("assets/icons/Ellipse 13.png"),
         actions: [
@@ -53,7 +61,7 @@ class HomePage extends StatelessWidget {
           SizedBox(width: getWidth(20))
         ],
       ),
-      body: ContractsPage(),
+      body: _pages[index],
       bottomNavigationBar: Container(
         height: getHeight(70),
         width: getWidth(375),

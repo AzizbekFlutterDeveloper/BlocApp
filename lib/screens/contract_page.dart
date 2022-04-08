@@ -84,10 +84,12 @@ class ContractsPage extends StatelessWidget {
                   ),
                 ),
                 SliverGrid(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,mainAxisExtent: getHeight(168)),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,mainAxisExtent: getHeight(155)),
                   delegate: SliverChildBuilderDelegate(
                     (context,index){
-                      return ContractContainer();
+                      return ContractContainer(
+                        index: index,
+                      );
                     }
                   ),
                 ),
