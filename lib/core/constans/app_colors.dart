@@ -9,6 +9,8 @@ class ConstColor {
 }
 List appBar = ["contracts","history","new_contract","saved","profile"];
 List contract = ["fish","amount","last_invoice",""];
+List profile = ["date_of_birth","phone_number","e_mail"];
+List flag = ["assets/icons/Group 8 (1).png","assets/icons/Group 8.png","assets/icons/US.png"];
 Map name = {
   "id": 1,
   "name": "Azizbek Karimov",

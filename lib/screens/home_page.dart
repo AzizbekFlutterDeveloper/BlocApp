@@ -2,6 +2,7 @@ import 'package:amaliyot/core/constans/app_colors.dart';
 import 'package:amaliyot/core/size_config/size_config.dart';
 import 'package:amaliyot/screens/bloc/cont_bloc.dart';
 import 'package:amaliyot/screens/contract_page.dart';
+import 'package:amaliyot/screens/history_page.dart';
 import 'package:amaliyot/screens/profile_page.dart';
 import 'package:amaliyot/screens/saved_page.dart';
 import 'package:amaliyot/screens/widget/bottom_nav_bar_icon.dart';
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final List<Widget> _pages = [
     ContractsPage(),
-    ContractsPage(),
+    HistoryPage(),
     ContractsPage(),
     SavedPage(),
     ProfilePage(),

@@ -7,6 +7,8 @@
     "invoice": "Выставленный счет",
     "fish": "Fish",
     "amount": "Количество",
+    "choose_a_language":"Choose a language",
+
     "last_invoice": "Последний счет",
     "number_of_invoices:": "Количество счетов",
     "paid": "Оплаченный",

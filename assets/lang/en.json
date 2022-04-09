@@ -9,6 +9,7 @@
     "amount": "Amount",
     "last_invoice": "Last invoice",
     "number_of_invoices:": "Number of invoices",
+    "choose_a_language":"Choose a language",
     "paid": "Paid",
     "rejected_by_iQ": "Rejected by IQ",
     "in_process": "In process",

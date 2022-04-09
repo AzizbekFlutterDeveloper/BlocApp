@@ -12,3 +12,7 @@ class BottomNavState extends ContState{
 class ContButtomState extends ContState{
   ContButtomState();
 }
+
+class LangState extends ContState{
+  LangState();
+}
