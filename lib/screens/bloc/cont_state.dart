@@ -16,3 +16,7 @@ class ContButtomState extends ContState{
 class LangState extends ContState{
   LangState();
 }
+
+class CreateState extends ContState{
+  CreateState();
+}

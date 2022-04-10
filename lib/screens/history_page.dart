@@ -1,5 +1,6 @@
 import 'package:amaliyot/core/constans/app_colors.dart';
 import 'package:amaliyot/core/size_config/size_config.dart';
+import 'package:amaliyot/screens/widget/contract_container.dart';
 import 'package:amaliyot/screens/widget/date_container.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -32,14 +33,18 @@ class HistoryPage extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
+                    const Spacer(),
                     Row(
                       children: [
-                        DateContainer(
-                          name: "16.02.2021",
-                        ),
+                        const DateContainer(name: "16.02.2021"),
                         Container(
-                          
+                          color: ConstColor.textWhite,
+                          width: getWidth(8),
+                          height: getHeight(2),
+                          margin:
+                              EdgeInsets.symmetric(horizontal: getWidth(12)),
                         ),
+                        const DateContainer(name: "To")
                       ],
                     ),
                   ],
@@ -47,6 +52,14 @@ class HistoryPage extends StatelessWidget {
               ),
             ),
           ),
+          SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,mainAxisExtent: getHeight(155)),
+            delegate: SliverChildBuilderDelegate(
+              (context,index){
+                return ContractContainer(index: index);
+              }
+            ),
+          )
         ],
       ),
     );

@@ -3,9 +3,11 @@ import 'package:amaliyot/core/size_config/size_config.dart';
 import 'package:amaliyot/screens/bloc/cont_bloc.dart';
 import 'package:amaliyot/screens/contract_page.dart';
 import 'package:amaliyot/screens/history_page.dart';
+import 'package:amaliyot/screens/new_contract_page.dart';
 import 'package:amaliyot/screens/profile_page.dart';
 import 'package:amaliyot/screens/saved_page.dart';
 import 'package:amaliyot/screens/widget/bottom_nav_bar_icon.dart';
+import 'package:amaliyot/screens/widget/create_show_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,9 +17,9 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final List<Widget> _pages = [
     ContractsPage(),
-    HistoryPage(),
-    ContractsPage(),
-    SavedPage(),
+    const HistoryPage(),
+    NewContractPage(),
+    const SavedPage(),
     ProfilePage(),
   ];
   @override
@@ -25,9 +27,9 @@ class HomePage extends StatelessWidget {
     SizeConfig().init(context);
     return BlocProvider(
       create: (context) => ContBloc(),
-      child: BlocConsumer<ContBloc,ContState>(
+      child: BlocConsumer<ContBloc, ContState>(
         listener: (context, state) {},
-        builder: (context, state){
+        builder: (context, state) {
           return scaffold(context);
         },
       ),
@@ -40,7 +42,8 @@ class HomePage extends StatelessWidget {
       backgroundColor: ConstColor.black,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: index != 0 ? const Color(0xff141416): ConstColor.black,
+        backgroundColor:
+            index != 0 ? const Color(0xff141416) : ConstColor.black,
         title: Text("${appBar[index]}".tr()),
         leading: Image.asset("assets/icons/Ellipse 13.png"),
         actions: [
@@ -52,9 +55,14 @@ class HomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset("assets/icons/Filter.svg",height: getHeight(20)),
-                  Container(height: getHeight(17),width: getWidth(2),color: ConstColor.textWhite),
-                  SvgPicture.asset("assets/icons/zoom-2 1.svg",height: getHeight(20)),
+                  SvgPicture.asset("assets/icons/Filter.svg",
+                      height: getHeight(20)),
+                  Container(
+                      height: getHeight(17),
+                      width: getWidth(2),
+                      color: ConstColor.textWhite),
+                  SvgPicture.asset("assets/icons/zoom-2 1.svg",
+                      height: getHeight(20)),
                 ],
               ),
             ),
@@ -62,7 +70,28 @@ class HomePage extends StatelessWidget {
           SizedBox(width: getWidth(20))
         ],
       ),
-      body: _pages[index],
+      body: Stack(
+        alignment: AlignmentDirectional.center,
+        children: [
+          _pages[index],
+          Positioned(
+            child: Visibility(
+              visible: context.watch<ContBloc>().showCreate,
+              child: Container(
+                height: getHeight(815),
+                width: getWidth(375),
+                color: Colors.black.withOpacity(0.5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    ShowCreateContainer(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       bottomNavigationBar: Container(
         height: getHeight(70),
         width: getWidth(375),
@@ -71,37 +100,47 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BottomIcon(
-              icon: index == 0 ? "assets/icons/DocumentW.svg":"assets/icons/Document.svg",
+              icon: index == 0
+                  ? "assets/icons/DocumentW.svg"
+                  : "assets/icons/Document.svg",
               lable: "contracts".tr(),
-              onTap: (){
+              onTap: () {
                 context.read<ContBloc>().bottomChangr(0);
               },
             ),
             BottomIcon(
-              icon: index == 1 ? "assets/icons/Time CircleW.svg":"assets/icons/Time Circle.svg",
+              icon: index == 1
+                  ? "assets/icons/Time CircleW.svg"
+                  : "assets/icons/Time Circle.svg",
               lable: "history".tr(),
-              onTap: (){
+              onTap: () {
                 context.read<ContBloc>().bottomChangr(1);
               },
             ),
             BottomIcon(
-              icon: index == 2 ? "assets/icons/PlusW.svg":"assets/icons/Plus.svg",
+              icon: index == 2
+                  ? "assets/icons/PlusW.svg"
+                  : "assets/icons/Plus.svg",
               lable: "new".tr(),
-              onTap: (){
+              onTap: () {
                 context.read<ContBloc>().bottomChangr(2);
               },
             ),
             BottomIcon(
-              icon: index == 3 ? "assets/icons/BookmarkW.svg":"assets/icons/Bookmark.svg",
+              icon: index == 3
+                  ? "assets/icons/BookmarkW.svg"
+                  : "assets/icons/Bookmark.svg",
               lable: "saved".tr(),
-              onTap: (){
+              onTap: () {
                 context.read<ContBloc>().bottomChangr(3);
               },
             ),
             BottomIcon(
-              icon: index == 4 ? "assets/icons/Profile.svg":"assets/icons/ProfileW.svg",
+              icon: index == 4
+                  ? "assets/icons/Profile.svg"
+                  : "assets/icons/ProfileW.svg",
               lable: "profile".tr(),
-              onTap: (){
+              onTap: () {
                 context.read<ContBloc>().bottomChangr(4);
               },
             ),
