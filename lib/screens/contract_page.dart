@@ -18,7 +18,6 @@ class ContractsPage extends StatelessWidget {
   final CalendarAgendaController _calendarAgendaControllerNotAppBar =
       CalendarAgendaController();
 
-
   Random random = Random();
   @override
   Widget build(BuildContext context) {
@@ -76,11 +75,11 @@ class ContractsPage extends StatelessWidget {
                   child: Row(
                     children: [
                       ButtomContainer(
-                        index: 0, 
+                        index: 0,
                         name: "contracts".tr(),
                       ),
                       ButtomContainer(
-                        index: 1, 
+                        index: 1,
                         name: "invoice".tr(),
                       ),
                     ],
@@ -89,20 +88,29 @@ class ContractsPage extends StatelessWidget {
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                      return context.watch<ContBloc>().contBool[index] == false? GestureDetector(
-                          child: ContractContainer(
-                            index: index,
-                          ),
-                          onTap: (){
-                             context.read<ContBloc>().addFarmCont(length: 10,index:index);
-                          },
-                        ): GestureDetector(child: FarmeContainer(),onTap: (){
-                          context.read<ContBloc>().removeFarmCont(index:index);
-                        },);
-                    },childCount: 10,
+                      return context.watch<ContBloc>().contBool[index] == false
+                          ? GestureDetector(
+                              child: ContractContainer(
+                                index: index,
+                              ),
+                              onTap: () {
+                                context
+                                    .read<ContBloc>()
+                                    .addFarmCont(length: 10, index: index);
+                              },
+                            )
+                          : GestureDetector(
+                              child: FarmeContainer(),
+                              onTap: () {
+                                context
+                                    .read<ContBloc>()
+                                    .removeFarmCont(index: index);
+                              },
+                            );
+                    },
+                    childCount: 10,
                   ),
                 ),
-                
               ],
             ),
           ),

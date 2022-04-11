@@ -40,5 +40,7 @@
     "create_contract": "Shartnoma tuzing",
     "Leave_a_comment_why_are_you_deleting_this_contract?": "Izoh qoldiring, nega bu shartnomani o'chirib tashlayapsiz?",
     "type_a_comment": "Fikr yozing",
-    "done":"Bajarildi"
+    "done":"Bajarildi",
+    "created_at":"Yaratilgan Vaqt",
+    "ITN/IEC_of_the_organization":"Tashkilotning ITN/IEC"
 }

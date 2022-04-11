@@ -41,5 +41,7 @@
     "create_contract": "Создать контракт",
     "Leave_a_comment_why_are_you_deleting_this_contract?": "Оставьте комментарий, почему вы удаляете этот контракт?",
     "type_a_comment": "Введите комментарий",
-    "done":"Сделанный"
+    "done":"Сделанный",
+    "created_at":"Создано на",
+    "ITN/IEC_of_the_organization":"ИНН/МЭК организации"
 }
