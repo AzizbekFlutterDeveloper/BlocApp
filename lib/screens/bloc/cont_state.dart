@@ -20,3 +20,11 @@ class LangState extends ContState{
 class CreateState extends ContState{
   CreateState();
 }
+
+class PopopMEnuState extends ContState{
+  PopopMEnuState();
+}
+
+class FarmConstState extends ContState{
+  FarmConstState();
+}

@@ -90,7 +90,7 @@ class ContractContainer extends StatelessWidget {
           Row(
             children: [
               Text(
-                "number_of_invoices:".tr() + ":",
+                "number_of_invoices".tr() + ":",
                 style: TextStyle(
                   color: ConstColor.textWhite,
                   fontSize: getWidth(14),

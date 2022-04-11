@@ -72,4 +72,31 @@ class ContBloc extends Cubit<ContState> {
     createIndex =i;
     emit(CreateState());
   }
+
+  bool faceVisible = false;
+  bool statusVisible = false;
+
+  void faceUse(){
+    faceVisible = !faceVisible;
+    statusVisible = false;
+    emit(PopopMEnuState());
+  }
+
+  void statusUse(){
+    statusVisible = !statusVisible;
+    faceVisible = false;
+    emit(PopopMEnuState());
+  }
+
+  List contBool = List.generate(10, (index) => false);
+
+  void addFarmCont({length,index}){
+    contBool[index] = true;
+    emit(FarmConstState());
+  }
+
+  void removeFarmCont({length,index}){
+    contBool[index] = false;
+    emit(FarmConstState());
+  }
 }

@@ -8,7 +8,7 @@
     "fish": "Fish",
     "amount": "Amount",
     "last_invoice": "Last invoice",
-    "number_of_invoices:": "Number of invoices",
+    "number_of_invoices": "Number of invoices",
     "choose_a_language":"Choose a language",
     "paid": "Paid",
     "rejected_by_iQ": "Rejected by IQ",
@@ -40,5 +40,7 @@
     "create_contract": "Create contract",
     "Leave_a_comment_why_are_you_deleting_this_contract?": "Leave a comment, why are you deleting this contract?",
     "type_a_comment": "Type a comment",
-    "done":"Done"
+    "done":"Done",
+    "created_at":"Created at",
+    "ITN/IEC_of_the_organization":"ITN/IEC of the organization"
 }

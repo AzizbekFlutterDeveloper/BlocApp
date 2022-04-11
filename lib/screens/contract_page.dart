@@ -2,11 +2,14 @@ import 'dart:math';
 
 import 'package:amaliyot/core/constans/app_colors.dart';
 import 'package:amaliyot/core/size_config/size_config.dart';
+import 'package:amaliyot/screens/bloc/cont_bloc.dart';
 import 'package:amaliyot/screens/widget/buttom_container.dart';
 import 'package:amaliyot/screens/widget/contract_container.dart';
+import 'package:amaliyot/screens/widget/farme_containder.dart';
 import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContractsPage extends StatelessWidget {
   ContractsPage({Key? key}) : super(key: key);
@@ -83,16 +86,23 @@ class ContractsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SliverGrid(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,mainAxisExtent: getHeight(155)),
+                SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (context,index){
-                      return ContractContainer(
-                        index: index,
-                      );
-                    }
+                    (context, index) {
+                      return context.watch<ContBloc>().contBool[index] == false? GestureDetector(
+                          child: ContractContainer(
+                            index: index,
+                          ),
+                          onTap: (){
+                             context.read<ContBloc>().addFarmCont(length: 10,index:index);
+                          },
+                        ): GestureDetector(child: FarmeContainer(),onTap: (){
+                          context.read<ContBloc>().removeFarmCont(index:index);
+                        },);
+                    },childCount: 10,
                   ),
                 ),
+                
               ],
             ),
           ),

@@ -9,7 +9,10 @@ class ConstColor {
 }
 List appBar = ["contracts","history","new_contract","saved","profile"];
 List contract = ["fish","amount","last_invoice",""];
+List farmCont = ["fisher’s_full_name","status_of_the_contract","amount","last_invoice","number_of_invoices","address_of_the_organization","ITN/IEC_of_the_organization","created_at"];
 List profile = ["date_of_birth","phone_number","e_mail"];
+List status = ["paid","in_process","rejected_by_payme","rejected_by_iQ"];
+List face = ["physical", "legal"];
 List flag = ["assets/icons/Group 8 (1).png","assets/icons/Group 8.png","assets/icons/US.png"];
 Map name = {
   "id": 1,

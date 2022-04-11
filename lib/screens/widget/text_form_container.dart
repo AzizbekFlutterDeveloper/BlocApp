@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class TextFormContainer extends StatelessWidget {
   final String? name;
   final Widget? child;
-  const TextFormContainer({Key? key, this.child, this.name}) : super(key: key);
+  final Widget? icon;
+  const TextFormContainer({Key? key, this.child, this.name,this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,23 @@ class TextFormContainer extends StatelessWidget {
         ),
         Container(
           margin: EdgeInsets.only(top: getHeight(6), bottom: getHeight(16)),
+          padding: EdgeInsets.symmetric(horizontal: getWidth(16)),
           height: getHeight(44),
           width: getWidth(343),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(6)),
             border: Border.all(color: ConstColor.grey, width: getWidth(2)),
           ),
-          child: child,
+          child: Row(
+            children: [
+              SizedBox(
+                width: getWidth(285),
+                child: child,
+              ),
+              Spacer(),
+              icon?? Text(""),
+            ],
+          ),
         ),
       ],
     );
